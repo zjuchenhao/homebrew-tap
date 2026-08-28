@@ -46,7 +46,7 @@ jobs:
             > /tmp/livecheck.json || true
 
           python3 - <<'PY' > /tmp/to-bump.txt
-          import json
+          import json, sys
 
           TAP = "zjuchenhao/tap"
 
@@ -59,10 +59,10 @@ jobs:
               if "/" not in name:
                   name = f"{TAP}/{name}"
               if item.get("status") == "error":
-                  print(f"::warning::livecheck error for {name}: {item.get('messages')}")
+                  print(f"::warning::livecheck error for {name}: {item.get('messages')}", file=sys.stderr)
                   continue
               if not item.get("meta", {}).get("livecheck_defined"):
-                  print(f"::warning::{name} has no livecheck block; add one to enable auto-bump")
+                  print(f"::warning::{name} has no livecheck block; add one to enable auto-bump", file=sys.stderr)
                   continue
               v = item["version"]
               print(f"{name}: {v['current']} ==> {v['latest']}")
@@ -75,6 +75,8 @@ jobs:
           else
             echo "all packages up to date"
           fi
+          echo "--- raw livecheck json:"
+          cat /tmp/livecheck.json
 
       - name: Open bump pull requests
         run: |
@@ -95,7 +97,8 @@ jobs:
                 fi
               }
             else
-              out=$(brew bump-formula-pr --no-fork --no-audit --no-style --no-browse \
+              # NOTE: bump-formula-pr has no --no-style flag.
+              out=$(brew bump-formula-pr --no-fork --no-audit --no-browse \
                     --version "$latest" "$name" 2>&1) || {
                 if echo "$out" | grep -qi "duplicate"; then
                   echo "SKIP (PR already open): $name"
