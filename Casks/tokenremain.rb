@@ -11,7 +11,12 @@ cask "tokenremain" do
 
   livecheck do
     url "https://github.com/Carstin520/token-remain/releases/latest/download/appcast.xml"
-    strategy :sparkle
+    strategy :sparkle do |item|
+      # Combine the short version and build number (e.g. "1.3.7,34") so the
+      # generic auto-bump workflow can pass the full version to
+      # `brew bump-cask-pr --version` (the URL needs the build number).
+      "#{item.short_version},#{item.version}"
+    end
   end
 
   auto_updates true
