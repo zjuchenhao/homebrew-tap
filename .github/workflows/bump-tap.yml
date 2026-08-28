@@ -31,23 +31,25 @@ jobs:
       HOMEBREW_NO_AUTO_UPDATE: "1"
       HOMEBREW_NO_INSTALL_CLEANUP: "1"
     steps:
-      - uses: actions/checkout@v4
-
       - name: Detect outdated packages
         run: |
           set -euo pipefail
 
-          brew tap zjuchenhao/homebrew-tap https://github.com/zjuchenhao/homebrew-tap.git
+          # The GitHub repo is zjuchenhao/homebrew-tap; the Homebrew tap name
+          # is zjuchenhao/tap (brew strips the "homebrew-" prefix).
+          brew tap zjuchenhao/tap
+          # Custom taps are untrusted by default; trust ours so casks can load.
+          brew trust zjuchenhao/tap
 
           # --newer-only: JSON only contains packages whose livecheck reports
           # a newer version (plus any livecheck errors).
-          brew livecheck --tap=zjuchenhao/homebrew-tap --newer-only --json \
+          brew livecheck --tap=zjuchenhao/tap --newer-only --json \
             > /tmp/livecheck.json || true
 
           python3 - <<'PY' > /tmp/to-bump.txt
           import json
 
-          TAP = "zjuchenhao/homebrew-tap"
+          TAP = "zjuchenhao/tap"
 
           with open("/tmp/livecheck.json", encoding="utf-8") as f:
               data = json.load(f)

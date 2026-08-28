@@ -2,18 +2,22 @@
 
 Personal Homebrew tap for macOS casks and formulae.
 
+> 注意:GitHub 仓库名是 `zjuchenhao/homebrew-tap`,但 Homebrew 的 tap 名是
+> **`zjuchenhao/tap`**(brew 会去掉仓库名的 `homebrew-` 前缀)。
+
 ## 使用
 
 ```sh
-brew tap zjuchenhao/homebrew-tap
-brew install --cask zjuchenhao/homebrew-tap/tokenremain
+brew tap zjuchenhao/tap
+brew trust zjuchenhao/tap        # 自定义 tap 默认 untrusted,需手动信任
+brew install --cask zjuchenhao/tap/tokenremain
 ```
 
 ## 自动更新(维护者)
 
 `.github/workflows/bump-tap.yml` 每 3 小时运行一次,自动完成所有包的更新:
 
-1. `brew livecheck --tap=zjuchenhao/homebrew-tap` 检测所有 cask / formula 是否有新版本
+1. `brew livecheck --tap=zjuchenhao/tap` 检测所有 cask / formula 是否有新版本
 2. 对每个有更新的包,`brew bump-cask-pr` / `brew bump-formula-pr` 自动改好 rb 文件并开 PR
 3. 你只需 review 并合并 PR;用户端 `brew update && brew upgrade` 即可更新
 
@@ -49,6 +53,6 @@ end
 ### 手动更新
 
 ```sh
-brew livecheck --cask zjuchenhao/homebrew-tap/tokenremain   # 检查
-brew bump-cask-pr --version "1.3.8,35" zjuchenhao/homebrew-tap/tokenremain  # 直接开 PR
+brew livecheck --cask zjuchenhao/tap/tokenremain   # 检查
+brew bump-cask-pr --version "1.3.8,35" zjuchenhao/tap/tokenremain  # 直接开 PR
 ```
