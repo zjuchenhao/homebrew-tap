@@ -41,9 +41,8 @@ jobs:
           # Custom taps are untrusted by default; trust ours so casks can load.
           brew trust zjuchenhao/tap
 
-          # --newer-only: JSON only contains packages whose livecheck reports
-          # a newer version (plus any livecheck errors).
-          brew livecheck --tap=zjuchenhao/tap --newer-only --json \
+          # JSON contains every package in the tap (plus any livecheck errors).
+          brew livecheck --tap=zjuchenhao/tap --json \
             > /tmp/livecheck.json || true
 
           python3 - <<'PY' > /tmp/to-bump.txt
@@ -65,7 +64,10 @@ jobs:
               if not item.get("meta", {}).get("livecheck_defined"):
                   print(f"::warning::{name} has no livecheck block; add one to enable auto-bump")
                   continue
-              print(kind, name, item["version"]["latest"])
+              v = item["version"]
+              print(f"{name}: {v['current']} ==> {v['latest']}")
+              if v.get("outdated"):
+                  print(kind, name, v["latest"])
           PY
 
           if [ -s /tmp/to-bump.txt ]; then
