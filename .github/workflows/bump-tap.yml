@@ -61,9 +61,6 @@ jobs:
               if item.get("status") == "error":
                   print(f"::warning::livecheck error for {name}: {item.get('messages')}", file=sys.stderr)
                   continue
-              if not item.get("meta", {}).get("livecheck_defined"):
-                  print(f"::warning::{name} has no livecheck block; add one to enable auto-bump", file=sys.stderr)
-                  continue
               v = item["version"]
               print(f"{name}: {v['current']} ==> {v['latest']}")
               if v.get("outdated"):
