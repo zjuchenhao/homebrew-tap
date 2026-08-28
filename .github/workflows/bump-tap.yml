@@ -62,7 +62,8 @@ jobs:
                   print(f"::warning::livecheck error for {name}: {item.get('messages')}", file=sys.stderr)
                   continue
               v = item["version"]
-              print(f"{name}: {v['current']} ==> {v['latest']}")
+              # Summary goes to stderr (log only); bump lines to stdout (to-bump.txt).
+              print(f"{name}: {v['current']} ==> {v['latest']}", file=sys.stderr)
               if v.get("outdated"):
                   print(kind, name, v["latest"])
           PY
@@ -81,6 +82,7 @@ jobs:
           failed=0
           while read -r kind name latest; do
             [ -n "$kind" ] || continue
+            [[ "$kind" =~ ^(cask|formula)$ ]] || { echo "SKIP (malformed entry): $kind $name $latest"; continue; }
             echo "== bumping $kind $name -> $latest"
             if [ "$kind" = "cask" ]; then
               out=$(brew bump-cask-pr --no-fork --no-audit --no-style --no-browse \
