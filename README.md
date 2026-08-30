@@ -18,13 +18,17 @@ brew install --cask zjuchenhao/tap/tokenremain
 `.github/workflows/bump-tap.yml` 每 3 小时运行一次,自动完成所有包的更新:
 
 1. `brew livecheck --tap=zjuchenhao/tap` 检测所有 cask / formula 是否有新版本
-2. 对每个有更新的包,`brew bump-cask-pr` / `brew bump-formula-pr` 自动改好 rb 文件并开 PR
-3. 你只需 review 并合并 PR;用户端 `brew update && brew upgrade` 即可更新
+2. 对每个有更新的包,`brew bump-cask-pr --write-only`(或 `bump-formula-pr --write-only`)
+   直接修改 rb 文件并提交 —— 过程中会下载新包重新计算 sha256,下载失败则不会提交
+3. 更新直接 push 到 `main`,**无需审核**;用户端 `brew update && brew upgrade` 即可更新
+
+> 个人 tap 不需要 PR 审查环节,直接提交避免了 PR 流程的额外依赖
+> (GITHUB_TOKEN 权限、分支冲突、遗留分支等)。
 
 ### 新增包的约定
 
 - **每个 cask / formula 必须带 `livecheck` 块**;没有的包会被 workflow 跳过(日志中会有 warning)
-- `livecheck` 块返回的版本字符串**必须与 cask 的版本格式完全一致**(包括逗号后缀,如 `1.3.7,34`),否则 `bump-*-pr --version` 无法正确拼接下载 URL
+- `livecheck` 块返回的版本字符串**必须与 cask 的版本格式完全一致**(包括逗号后缀,如 `1.3.7,34`),否则无法正确拼接下载 URL
 
 ### 示例
 
@@ -54,5 +58,6 @@ end
 
 ```sh
 brew livecheck --cask zjuchenhao/tap/tokenremain   # 检查
-brew bump-cask-pr --version "1.3.8,35" zjuchenhao/tap/tokenremain  # 直接开 PR
+brew bump-cask-pr --write-only --commit --version "1.3.8,35" zjuchenhao/tap/tokenremain
+git -C "$(brew --repository zjuchenhao/tap)" push origin main  # 提交已由 --commit 完成
 ```
