@@ -102,7 +102,7 @@ jobs:
 
           # Push every bump committed above straight to main (no PR, no review).
           git -C "$TAP_DIR" remote set-url origin \
-            "https://x-access-token:${GITHUB_TOKEN}@github.com/zjuchenhao/homebrew-tap.git"
+            "https://x-access-token:${HOMEBREW_GITHUB_API_TOKEN}@github.com/zjuchenhao/homebrew-tap.git"
           git -C "$TAP_DIR" push origin main
 
           exit $failed
