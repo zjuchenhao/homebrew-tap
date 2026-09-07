@@ -1,13 +1,13 @@
 cask "pi-desktop" do
-  version "0.13.11"
+  version "0.14.0"
 
   on_arm do
     url "https://github.com/vastsa/PI-Desktop/releases/download/v#{version}/PI-Desktop-#{version}-arm64-mac.zip"
-    sha256 "78eb477a6e1db37329d8d727b49c4de28d10aa357732178ffcac6257e989c22a"
+    sha256 "a59951755be618ad14c8858e4cd148fad797fb98b58ae1e6d5bdb96612fcdf06"
   end
   on_intel do
     url "https://github.com/vastsa/PI-Desktop/releases/download/v#{version}/PI-Desktop-#{version}-mac.zip"
-    sha256 "d94ee48c30d32a2d1f6dd97e1150fb40eefefe5adf8b4f2f10d3bf0b7502b091"
+    sha256 "2a4040c0e814b10064fd32c752befbb36a0a683123e2db6da1c246a6d988ea85"
   end
 
   name "PI-Desktop"
