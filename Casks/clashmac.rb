@@ -1,8 +1,7 @@
 cask "clashmac" do
   version "27.1.4"
 
-  url "https://github.com/666OS/ClashMac/releases/download/#{version}/ClashMac-#{version}.dmg",
-      verified: "github.com/666OS/ClashMac/"
+  url "https://github.com/666OS/ClashMac/releases/download/#{version}/ClashMac-#{version}.dmg"
   sha256 "09ae706bac6b7962f4132ab5052ab1e172366cff2a19003b3d4bf07d56793528"
 
   name "ClashMac"
