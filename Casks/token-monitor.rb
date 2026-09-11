@@ -1,13 +1,13 @@
 cask "token-monitor" do
-  version "0.55.0"
+  version "0.56.0"
 
   on_arm do
     url "https://github.com/Javis603/token-monitor/releases/download/v#{version}/Token-Monitor-#{version}-arm64.dmg"
-    sha256 "5526e22a8faa8ab29a8091bd187ee9359bafb3fe5822c6d18ebc6c6792a8b9d7"
+    sha256 "6e5849ec9e12790dfd328617d985c8123e8599fbd64dae206851be64c77df122"
   end
   on_intel do
     url "https://github.com/Javis603/token-monitor/releases/download/v#{version}/Token-Monitor-#{version}-x64.dmg"
-    sha256 "92c27c756d691d6556bf9ca8eeecc3580c5cbc9ba4a90ab49426af3f92a699db"
+    sha256 "7615132845c979f49e9b851203ead09a0c0914d75e11b74d27b5940b2a7af352"
   end
 
   name "Token Monitor"
