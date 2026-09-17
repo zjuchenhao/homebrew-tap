@@ -1,8 +1,8 @@
 cask "dsh-desktop" do
-  version "2.0.10"
+  version "2.0.11"
 
   url "https://github.com/anywhere-labs/dsh-desktop/releases/download/v#{version}/DSH.Desktop-#{version}-universal.dmg"
-  sha256 "f143c54726cf2f966187b82a4a48057a8b2884f46743390cf94650663433fb79"
+  sha256 "ff470cd346aa7a951a4e0724b44130ba573021bb463c79002385cd6177fdf2a3"
 
   name "DSH Desktop"
   desc "Open-source desktop client for the DeepSeek Harness (DSH) plugin ecosystem"
