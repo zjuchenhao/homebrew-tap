@@ -1,13 +1,13 @@
 cask "kimi-code-app" do
-  version "1.0.1"
+  version "1.0.2"
 
   on_arm do
     url "https://cdn.kimi.com/kimi-code/desktop/download/KimiCode-mac-arm64.dmg"
-    sha256 "a4fbecb10cda6518feb5a8d1e857e9f926629a1f66088e20f478d1319469ae0a"
+    sha256 "868e9e419508fbc8c0d0744aac3cb7ce06bde028546b64c9444dc992c753435e"
   end
   on_intel do
     url "https://cdn.kimi.com/kimi-code/desktop/download/KimiCode-mac-x64.dmg"
-    sha256 "ba83e0eded9bd80e2604e10772713c1ce9224e22f5fe4f5539bc742be2247fdf"
+    sha256 "6c380e63a9c91921171a20385653778c937de5e0de2509f883959c41319c6560"
   end
 
   name "Kimi Code"
