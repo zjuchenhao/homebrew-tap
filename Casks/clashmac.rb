@@ -1,8 +1,8 @@
 cask "clashmac" do
-  version "27.1.7"
+  version "27.1.8"
 
   url "https://github.com/666OS/ClashMac/releases/download/#{version}/ClashMac-#{version}.dmg"
-  sha256 "8534dc5915ea92b38d56a230f8a1889a9db32ebb4d5c23b047567e137696f749"
+  sha256 "d48a0bcac1fe97e2cb06bf99541fba71e0f6e0060d954fbee8898ad268c508f9"
 
   name "ClashMac"
   desc "Native proxy client for macOS"
