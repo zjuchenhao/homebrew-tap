@@ -1,8 +1,8 @@
 cask "tokenremain" do
-  version "1.4.1,38"
+  version "1.4.2,39"
 
   url "https://github.com/Carstin520/token-remain/releases/download/v#{version.csv.first}/TokenRemain-#{version.csv.first}-#{version.csv.second}.dmg"
-  sha256 "a537d10f913130c803197bb52163d2170dfefe8f981a69ae921d6fc9416416d6"
+  sha256 "f1a95c7a84b1cd00fe09337803f356ee08b0ece483e13716968c3e082f19eea4"
 
   name "TokenRemain"
   desc "Privacy-first macOS menu bar app for tracking AI coding quotas, reset times, token usage, and costs"
