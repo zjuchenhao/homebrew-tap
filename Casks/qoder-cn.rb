@@ -25,7 +25,7 @@ cask "qoder-cn" do
 
   depends_on macos: :monterey
 
-  app "Qoder CN IDE Installer/Qoder CN IDE.app"
+  app "Qoder CN IDE.app"
 
   uninstall quit: "com.aliyun.lingma.ide"
 

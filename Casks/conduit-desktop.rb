@@ -18,7 +18,7 @@ cask "conduit-desktop" do
   depends_on arch: :arm64
   depends_on macos: :ventura
 
-  app "Conduit #{version}-arm64/Conduit.app"
+  app "Conduit.app"
 
   uninstall quit: "com.conduit.app"
 
