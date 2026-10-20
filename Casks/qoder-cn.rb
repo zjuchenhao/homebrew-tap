@@ -1,13 +1,13 @@
 cask "qoder-cn" do
-  version "1.34.0"
+  version "1.35.0"
 
   on_arm do
     url "https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/#{version}/Qoder-CN-IDE-darwin-arm64.dmg"
-    sha256 "3d036062ce392eac48c48a1c539a31f8188cf44abcac94e616575fdb9b9546ce"
+    sha256 "bdd4d481a61a7c0e0e5b67f2e6e06931ab20908ac69c38d8db9f527d5ecfee82"
   end
   on_intel do
     url "https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/#{version}/Qoder-CN-IDE-darwin-x64.dmg"
-    sha256 "7bcbaf96af7db132bde9396174c17a1162a2726ebda19bd66c9e26bada46421d"
+    sha256 "5b670dc827ceaad0457b4b68fe4a7439cfc5541b56e7f738a182ca90aae26430"
   end
 
   name "Qoder CN IDE"
