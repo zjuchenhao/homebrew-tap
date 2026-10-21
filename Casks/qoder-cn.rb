@@ -1,43 +1,42 @@
 cask "qoder-cn" do
-  version "1.35.0"
+  version "0.4.8"
 
   on_arm do
-    url "https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/#{version}/Qoder-CN-IDE-darwin-arm64.dmg"
-    sha256 "bdd4d481a61a7c0e0e5b67f2e6e06931ab20908ac69c38d8db9f527d5ecfee82"
+    url "https://static.qoder.com.cn/qoder-app/releases/#{version}/Qoder-CN-mac-arm64.zip"
+    sha256 "b5eafbc435dc7b414c0b3099c40739f35bb0f9f973f062f401d199cf40fa4a05"
   end
   on_intel do
-    url "https://qoder-ide-cn.oss-cn-hangzhou.aliyuncs.com/qoder/release/#{version}/Qoder-CN-IDE-darwin-x64.dmg"
-    sha256 "5b670dc827ceaad0457b4b68fe4a7439cfc5541b56e7f738a182ca90aae26430"
+    url "https://static.qoder.com.cn/qoder-app/releases/#{version}/Qoder-CN-mac-x64.zip"
+    sha256 "cd9710c4bfa7f2b96282da270363ba52dc9a7fdc012cf34ded726413c40e507e"
   end
 
-  name "Qoder CN IDE"
-  desc "Agentic AI coding IDE"
+  name "Qoder CN"
+  desc "Agent workbench for human and AI software teams"
   homepage "https://qoder.cn/"
 
   livecheck do
-    url "https://docs.qoder.cn/product-overview/qoder-cn-ide-update-log"
-    strategy :page_match do |page|
-      page.scan(/data-component-part="update-description">\s*v?(\d+(?:\.\d+)+)/i).flatten.first
-    end
+    url "https://static.qoder.com.cn/qoder-app/releases/latest-mac.yml"
+    strategy :electron_builder
   end
 
   auto_updates true
 
   depends_on macos: :monterey
 
-  app "Qoder CN IDE.app"
+  app "Qoder CN.app"
 
-  uninstall quit: "com.aliyun.lingma.ide"
+  uninstall quit: "com.qodercn.app"
 
   zap trash: [
-    "~/.qoder-cn",
-    "~/.qodercn",
-    "~/Library/Application Support/QoderCN",
-    "~/Library/Caches/QoderCN",
-    "~/Library/Caches/com.aliyun.lingma.ide",
-    "~/Library/HTTPStorages/com.aliyun.lingma.ide",
-    "~/Library/Logs/QoderCN",
-    "~/Library/Preferences/com.aliyun.lingma.ide.plist",
-    "~/Library/Saved Application State/com.aliyun.lingma.ide.savedState",
+    "~/.qoder",
+    "~/Library/Application Support/Qoder CN",
+    "~/Library/Application Support/qoder-cn",
+    "~/Library/Caches/com.qodercn.app",
+    "~/Library/Caches/qoder-cn-updater",
+    "~/Library/HTTPStorages/com.qodercn.app",
+    "~/Library/Logs/Qoder CN",
+    "~/Library/Preferences/com.qodercn.app.plist",
+    "~/Library/Saved Application State/com.qodercn.app.savedState",
+    "~/Library/WebKit/com.qodercn.app",
   ]
 end
