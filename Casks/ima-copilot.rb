@@ -1,8 +1,8 @@
 cask "ima-copilot" do
-  version "2.6.13,5247"
+  version "2.6.15,5280"
 
   url "https://app-dl.ima.qq.com/mac_channel/ima.copilot_universal_1018_#{version.csv.first}_#{version.csv.second}.dmg"
-  sha256 "79e4962387e82aae3ffecd6aec7d5147f977660b6fd96ca202494e9e736e0ffd"
+  sha256 "2c8a5104931c0d3775a6043b0c5e9eeb91fdc6626bba6b7c818634bcc156972e"
 
   name "ima.copilot"
   desc "AI-powered knowledge base and productivity workspace"
