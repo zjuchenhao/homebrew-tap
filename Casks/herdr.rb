@@ -1,8 +1,8 @@
 cask "herdr" do
-  version "0.1.9"
+  version "0.1.10"
 
   url "https://releases.herdr.dev/app/#{version}/Herdr.dmg"
-  sha256 "85b7ba9556087aaf954bf7a9e250f3e14ccc4bbeaf2d10a1a1e48b8f61710614"
+  sha256 "08be7b314e00dc3926df12616a1a0b4464771ff3bd0916c41a26d7d921ca3556"
 
   name "Herdr"
   desc "Native workspace for coding agents that keep running in the background"
