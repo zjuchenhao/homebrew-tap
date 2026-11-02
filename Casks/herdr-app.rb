@@ -1,4 +1,4 @@
-cask "herdr" do
+cask "herdr-app" do
   version "0.1.11"
 
   url "https://releases.herdr.dev/app/#{version}/Herdr.dmg"
