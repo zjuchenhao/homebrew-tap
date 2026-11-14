@@ -1,11 +1,11 @@
 cask "rex-beta" do
-  version "0.1.0,1956"
+  version "0.1.0,1973"
 
   # Preview channel. `.../preview/latest.dmg` is the same artifact as this
   # versioned file (identical bytes/sha256), but only the versioned URL is
   # immutable, so pin to it and let `livecheck` find new builds.
   url "https://blob.superlogical.com/public/rex-app/preview/Rex-#{version.csv.first}-#{version.csv.second}.dmg"
-  sha256 "1f24601f4963e3577edf836780b21d0505e227ae981d5138659fc7f68b8fba6e"
+  sha256 "235dfdcc9f8e6b7e6a8af5f2dc3bbe5fb3b169f92ff709d390f06dc87650d7c6"
 
   name "Rex Beta"
   desc "Terminal multiplexer and workspace for coding agents (beta channel)"
