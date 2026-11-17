@@ -1,13 +1,13 @@
 cask "qoder-cn" do
-  version "0.5.13"
+  version "0.5.14"
 
   on_arm do
     url "https://static.qoder.com.cn/qoder-app/releases/#{version}/Qoder-CN-mac-arm64.zip"
-    sha256 "3d64d3ac4594e96ce74391bd2c83114750726e43eb7703ecaa2ae7d565440c8e"
+    sha256 "71a7e393e566be4d9f582dd0366e8b10eafe2c97c58761b87663ba5531caa7b5"
   end
   on_intel do
     url "https://static.qoder.com.cn/qoder-app/releases/#{version}/Qoder-CN-mac-x64.zip"
-    sha256 "79f54efee501118a121c362e0e88fc532f0274fbc77f144d6180749aa775acfd"
+    sha256 "a93892ff2cbf7cf8dc06b89e4d5babf05985ded7545d555e181ead35d6ceda40"
   end
 
   name "Qoder CN"
