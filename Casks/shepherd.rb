@@ -1,6 +1,6 @@
 cask "shepherd" do
-  version "1.10.2"
-  sha256 "cfbb84a05fbc479368331962113f1b7e514ac6d77a7119db8778c2c16246a2c2"
+  version "1.11.1"
+  sha256 "1eff1597dde9d05ed61f6833542e783061237fe1270844cb04824dab297e83c2"
 
   url "https://github.com/freethinkel/shepherd/releases/download/v#{version}/Shepherd-#{version}-universal.dmg"
   name "Shepherd"
