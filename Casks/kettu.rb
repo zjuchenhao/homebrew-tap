@@ -1,13 +1,13 @@
 cask "kettu" do
-  version "0.1.31"
+  version "0.1.33"
 
   on_arm do
     url "https://github.com/KettuAI/Kettu/releases/download/v#{version}/Kettu-#{version}-arm64.dmg"
-    sha256 "eb9f6a3e673f5a10d3d2c68cb90398aa2c1fa16d68c770290396f9ae9306c2d5"
+    sha256 "ef28e74016f15c9110eec963f0cdd21d17fd29d15af6e26d3e396c21f82d29f4"
   end
   on_intel do
     url "https://github.com/KettuAI/Kettu/releases/download/v#{version}/Kettu-#{version}-x64.dmg"
-    sha256 "c396d8171541fb484633c8c6df0b565fc2f58247b92d9a7971d28ed7fde97764"
+    sha256 "c33a7a21c74e49305ecdd5b88ec43dedcb009607e69c92863aa39c624187c65b"
   end
 
   name "Kettu"
